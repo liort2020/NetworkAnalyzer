@@ -41,8 +41,8 @@ fileprivate extension String {
         // Detect URLs inside a string
         guard let dataDetector = try? NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue),
               let match = dataDetector.firstMatch(in: self,
-                                               options: [],
-                                               range: NSRange(location: 0, length: self.utf16.count))
+                                                  options: [],
+                                                  range: NSRange(location: 0, length: self.utf16.count))
         else { return false }
         
         return match.range.length == utf16.count
