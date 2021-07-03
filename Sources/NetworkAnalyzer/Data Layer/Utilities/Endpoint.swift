@@ -7,7 +7,7 @@
 
 import Foundation
 
-public protocol Endpoint {
+protocol Endpoint {
     var path: String { get }
     var method: HTTPMethod { get }
     var headers: [String: String]? { get }
@@ -20,7 +20,7 @@ extension Endpoint {
     /// - Parameter url: URL path
     /// - Throws: Throw invalid URL error
     /// - Returns: Optional URLRequest that we will use to fetch data from the server
-    public func request(url: String) throws -> URLRequest? {
+    func request(url: String) throws -> URLRequest? {
         let urlPath = url + path
         guard urlPath.isValidURL(), let url = URL(string: urlPath) else {
             throw WebError.invalidURL

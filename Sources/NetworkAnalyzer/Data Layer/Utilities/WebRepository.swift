@@ -18,7 +18,7 @@ extension WebRepository {
     /// Retrieve data from the server for a given URL request
     /// - Parameter endpoint: An endpoint that will provide the URL request to create a data task
     /// - Returns: A publisher that returns data from the server or throws WebError
-    public func call(endpoint: Endpoint) -> AnyPublisher<[String: AnyObject]?, Error> {
+    func call(endpoint: Endpoint) -> AnyPublisher<[String: AnyObject]?, Error> {
         guard let urlRequest = try? endpoint.request(url: baseURL) else {
             return Fail(error: WebError.invalidURL)
                 .eraseToAnyPublisher()
