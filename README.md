@@ -15,6 +15,9 @@ This framework analyzes your URL path and returns:
 
 ## Architecture
 This framework is part of the data layer in Clean Architecture
+
+![Screenshot](NetworkAnalyzerFrameworkArchitecture.png)
+
 - **Data Layer**
   - `NetworkRepository` - An entry point of this framework, managing our server requests, implements `NetworkWebRepository` protocol, implements `URLSessionTaskDelegate` protocol to display all HTTP redirects, and returning `NetworkRepositoryPublishers`.
   - `NetworkRepositoryPublishers` - Publishers wrapper that contains: response, error, and redirect `PassthroughSubject`.
@@ -23,8 +26,6 @@ This framework is part of the data layer in Clean Architecture
   - `WebError` - The error that `WebRepository` can throw.
   - `Endpoint` - Prepares the URLRequest to connect to the server (`NetworkEndpoint` implements this protocol).
   - `HTTPMethod` - The HTTP methods that allow in this framework.
-
-![Screenshot](NetworkAnalyzerFrameworkArchitecture.png)
 
 
 ## Installation
